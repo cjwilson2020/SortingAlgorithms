@@ -1,0 +1,38 @@
+D&C Algorithm
+1) Divide - Partition instance into pieces
+2) Recursively Solve - don't worry about what's inside 
+3) Merge- putting together the sub-solutions
+
+Example: MergeSort
+Given: An unsorted array of n numbers
+Want: Numbers sorted in ascending order
+
+{8, 3, 20, 1, 9. 15, 18, 6, 2, 13, 11 }
+
+Pseudo:
+
+MergeSort(int[] A, int a, int b) a = start index, b = ending index
+	If b > a 
+		let m = floor( (a + b) /2) , m = pivot
+		MergeSort(A, a, m)
+		MergeSort(A, m+1, b)
+		Merge(A, a, m, b)
+
+Merge(int[] A, int a, int m, int b)
+	int[] B = new int[]
+	let i = a
+	let j = m+1
+	for (k = a, k <= b, k++)
+		if i == m+1 
+			B[k] = A[j]
+			j  = j + 1
+		Else if j == b+1 
+			B[k] = A[i]
+			i  = i + 1
+		Else
+			If A[i] < A[j]
+				B[k] = A[i]
+				i  = i + 1
+			Else
+				B[k] = A[j]
+				j  = j + 1
